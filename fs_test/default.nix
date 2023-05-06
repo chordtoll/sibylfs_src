@@ -1,6 +1,6 @@
 { }:
 let 
-  pkgs = import <nixpkgs> {};
+  pkgs = import ../pinned.nix {};
   inherit (pkgs) stdenv fetchgit ocaml;
   op = pkgs.ocamlPackages;
   inherit (op) findlib cppo sexplib cstruct;
@@ -30,6 +30,7 @@ stdenv.mkDerivation {
   DISABLE_BYTE = "true";
   
   buildPhase = ''
+    patchShebangs ./lib/mk_fs_test_version.sh
     export GIT_REV="$out"
     export DIRTY_FLAG=""
     make

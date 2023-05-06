@@ -1,6 +1,6 @@
 { }:
 let 
-    pkgs = import <nixpkgs> {};
+    pkgs = import ../../pinned.nix {};
     stdenv = pkgs.stdenv;
     fetchgit = pkgs.fetchgit;
     ocaml = pkgs.ocaml;
@@ -11,14 +11,15 @@ in stdenv.mkDerivation {
     name = "lem";
   
     src = fetchgit {
-      url = https://tomridge@bitbucket.org/tomridge/lem.git;
+      url = https://github.com/tomjridge/lem_from_tjr_bb.git;
       rev = "5b4a168"; 
       sha256 = "19642yadi089p8si87n0rbn0mwwxyvzjrv33g848gaqy811i0zak";
     };
   
     buildInputs = [ ocaml git pkgs.perl  ]; # isabelle pkgs.pkgconfig findlib 
-  
+ 
     buildPhase = ''
+      patchShebangs library/run-ocaml-tests.sh
       echo 'let v="5b4a168"' >src/version.ml  # complete hack - the source code isn't a git repo after fetchgit
       echo "!!!"
       make

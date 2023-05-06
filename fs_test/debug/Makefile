@@ -1,5 +1,5 @@
 # build fs_spec/build and fs_test/lib first
-SHELL:=/bin/bash
+SHELL:=bash
 
 # bash will read this config file first
 BASH_ENV=bash_env.sh

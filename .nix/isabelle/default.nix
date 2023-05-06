@@ -3,7 +3,7 @@
 # adapted from nixpkgs by tr
 
 let 
-    pkgs = import <nixpkgs> {};
+    pkgs = import ../../pinned.nix {};
     stdenv = pkgs.stdenv;
     fetchurl = pkgs.fetchurl;
     perl = pkgs.perl;

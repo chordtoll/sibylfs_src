@@ -1,6 +1,6 @@
 { }:
 let 
-    pkgs = import <nixpkgs> {};
+    pkgs = import ../../pinned.nix {};
     stdenv = pkgs.stdenv;
     fetchgit = pkgs.fetchgit;
     ocaml = pkgs.ocaml;

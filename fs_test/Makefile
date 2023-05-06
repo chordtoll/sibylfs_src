@@ -1,4 +1,4 @@
-SHELL:=/bin/bash
+SHELL:=bash
 
 # bash will read this config file first
 BASH_ENV=bash_env.sh

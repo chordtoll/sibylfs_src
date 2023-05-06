@@ -1,6 +1,6 @@
 { }:
 let 
-    pkgs = import <nixpkgs> {};
+    pkgs = import ../pinned.nix {};
     inherit (pkgs) stdenv fetchgit ocaml;
     op = pkgs.ocamlPackages;
     inherit (op) findlib cppo sexplib cstruct;
